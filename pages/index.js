@@ -3,9 +3,9 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Amplify, Auth, Hub, Logger } from 'aws-amplify';
 
-import awsExports from '../src/aws-exports';
+import awsmobile from '../src/aws-exports';
 import { useEffect, useState } from 'react';
-Amplify.configure({ ...awsExports, ssr: true });
+Amplify.configure({ ...awsmobile, ssr: true });
 Amplify.Logger.LOG_LEVEL = 'DEBUG'
 
 const logger = new Logger('My-Logger');
