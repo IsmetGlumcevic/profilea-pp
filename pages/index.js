@@ -132,6 +132,9 @@ function Home() {
     })
   }
 
+  const fbLogin = async () => {
+    await Auth.federatedSignIn({ provider: 'Facebook' })
+  }
 
   return (
     <div className={styles.container}>
@@ -153,6 +156,7 @@ function Home() {
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
             <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
             <button onClick={signIn}>Sign in</button>
+            <div onClick={() => fbLogin()}>FB</div>
           </div>
         )}
 
