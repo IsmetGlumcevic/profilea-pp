@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Amplify, Auth, Hub, Logger } from 'aws-amplify';
+import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
 
 import awsconfig from '../src/aws-exports';
 import { useEffect, useState } from 'react';
@@ -157,6 +158,8 @@ function Home() {
             <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
             <button onClick={signIn}>Sign in</button>
             <div onClick={() => fbLogin()}>FB</div>
+            <button onClick={() => Auth.federatedSignIn({provider: CognitoHostedUIIdentityProvider.Facebook })}>Open Facebook</button>
+
           </div>
         )}
 
